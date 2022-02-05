@@ -13,7 +13,7 @@ module.exports = function check(str, bracketsConfig) {
     let currentSymbol = str[i];
 
     if (openBrackets.includes(currentSymbol)) {
-      if (currentSymbol === stack[stack.length - 1] && stack[stack.length - 1] === '|') {
+      if (currentSymbol === stack[stack.length - 1] && stack[stack.length - 1] === '|' ||  stack[stack.length - 1] === '7' || stack[stack.length - 1] === '8') {
         stack.pop();
       } else {
       	stack.push(currentSymbol);
