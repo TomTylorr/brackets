@@ -13,6 +13,12 @@ module.exports = function check(str, bracketsConfig) {
     let currentSymbol = str[i];
 
     if (openBrackets.includes(currentSymbol)) {
+      if (currentSymbol === stack[stack.length - 1]) {
+        stack.pop();
+          if (stack.length === 0) {
+        		return true;
+      		}
+      }
       stack.push(currentSymbol);
     } else {
       if (stack.length === 0) {
@@ -23,7 +29,6 @@ module.exports = function check(str, bracketsConfig) {
       
 
       if (bracketsPair[currentSymbol] === topElement) {
-      	
         stack.pop();
       } else {
         return false;
