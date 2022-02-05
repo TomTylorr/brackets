@@ -13,13 +13,11 @@ module.exports = function check(str, bracketsConfig) {
     let currentSymbol = str[i];
 
     if (openBrackets.includes(currentSymbol)) {
-      if (currentSymbol === stack[stack.length - 1]) {
+      if (currentSymbol === stack[stack.length - 1] && stack[stack.length - 1] === '|') {
         stack.pop();
-          if (stack.length === 0) {
-        		return true;
-      		}
+      } else {
+      	stack.push(currentSymbol);
       }
-      stack.push(currentSymbol);
     } else {
       if (stack.length === 0) {
         return false;
